@@ -1,0 +1,33 @@
+<div class="container">
+    <!-- Header con Logo, Búsqueda y Perfil de Usuario -->
+    <div class="row align-items-center py-3">
+      <div class="col-md-3 text-center">
+        <img  alt="La Butaca Crítica" class="img-fluid logo">
+      </div>
+      <div class="col-md-6">
+        <!-- Barra de Búsqueda -->
+        <div class="input-group">
+          <input [(ngModel)]="searchQuery" type="text" class="form-control" placeholder="Buscar películas">
+          <button class="btn btn-primary" (click)="searchMovies()">Buscar</button>
+        </div>
+      </div>
+      <div class="col-md-3 text-end">
+        <!-- Perfil del Usuario -->
+        <img  alt="Perfil del usuario" class="rounded-circle" style="width: 50px; height: 50px;">
+      </div>
+    </div>
+  
+    <!-- Carrusel de Películas Más Puntuadas -->
+    <div class="movie-carousel mt-4">
+      <h2 class="mb-3">Top 5 Películas Más Puntuadas</h2>
+      <div class="d-flex overflow-auto">
+        <div *ngFor="let movie of topRatedMovies" class="me-3" style="width: 200px;">
+          <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}" class="img-fluid rounded">
+          <p class="mt-2 text-center">{{ movie.title }}</p>
+          <p class="text-muted text-center">Puntuación: {{ movie.vote_average }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
